@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<style>
+    .form-radiant {
+            /* background: #ffffff; */
+            /* padding: 40px 30px; */
+            /* border-radius: 12px; */
+            /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); */
+            /* width: 400px; */
+            text-align: center;
+        }
+
+        .form-radiant h1 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .form-radiant label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 500;
+            /* color: white; */
+        }
+
+        .form-radiant input {
+            width: 100%;
+            padding: 5px 12px;
+            /* margin-bottom: 20px; */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-radiant input:focus {
+            border-color: #80deea;
+            outline: none;
+        }
+
+        .button{
+            
+            background-color: #94bbe9 ;
+        }
+
+        .button:hover{
+            background-color: #EEAECA;
+        }
+</style>
+
+<body style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class=" d-flex justify-content-center align-items-center shadow rounded " >
+        <div class="rounded-start  border-1 p-5 w-50  " 
+            style="background: #EEAECA;background: linear-gradient(282deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); height: 500px;">
+            
+            <h2 class="text-center mt-5 mb-5 ">Welcome Back</h2>
+            <p class="text-center mt-5 mb-5 ">To keep connected with us please login with your personal info</p>
+            <div class="d-flex justify-content-center align-items-center mb-5">
+                <a href="{% url 'login' %}" type="submit" class="mb-5 btn btn-outline-primary text-dark w-50">SIGN IN</a>
+            </div>
+        </div>
+        <div class=" p-4 w-50  mt-3 form-radiant ">
+            <h2 class="text-center"> Create Account</h2>
+            <div class="d-flex justify-content-center align-items-center  fs-2" style="gap: 20px;">
+                <i class="fa-brands fa-instagram "></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-google-plus"></i>
+            </div>
+            <p class="text-center fw-light mt-2">or use your email for registration</p>
+            <hr>
+            <form action="" method="post">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+
+
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                    <button class="btn button text-dark w-50  rounded-5">SIGN UP</button>
+                </div>
+        </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

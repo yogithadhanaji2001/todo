@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO | Add Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<style>
+    .add-form-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group .task-complete-area {
+        display: flex;
+        gap: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    
+
+    .form-group textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    .custom-checkbox {
+
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+    }
+
+    .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+</style>
+
+<body style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="add-form-container w-100">
+        <h1 class="text-center">Create Task</h1>
+
+        <form action="" method="post">
+            
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_task">Title:</label>
+                {{form.title}}
+            </div>
+
+            <div class="form-group">
+                <label for="id_description">Description:</label>
+                {{form.description }}
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Priority:</label>
+                {{form.priority }}
+
+                
+            </div>
+
+
+
+            <!-- <div class="form-group">
+                <div class="task-complete-area">
+                    <label for="id_completed">Completed</label>
+                    <label class="custom-checkbox">
+                        {{ form.completed }}
+
+                    </label>
+                </div>
+            </div> -->
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary w-25">Create</button>
+                <a href="{% url 'home' %}" class="btn btn-secondary w-25">Cancel</a>
+            </div>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
