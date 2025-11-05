@@ -43,9 +43,14 @@ class Tasklist(View):
 
     def get (self, request):
 
-        task = TaskManager.objects.filter(user=request.user)
+        if request.user.is_authenticated:
 
-        return render(request,'base.html', {'task':task})
+            task = TaskManager.objects.filter(user=request.user)
+
+            return render(request,'base.html', {'task':task})
+        
+        return render(request,'base.html')
+    
     
 
 
@@ -91,6 +96,8 @@ class Task_complet(View):
 
         task.save()
 
+        return redirect('home')
+
 
 
 
@@ -110,7 +117,7 @@ class TaskSearchView(View):
 
         if query:
 
-            task = task.filter(Q(title__icontains = query) | Q(category__icontains = query))
+            task = task.filter(Q(title__icontains = query) | Q(priority__icontains = query))
 
 
 

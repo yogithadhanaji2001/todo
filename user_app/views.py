@@ -76,6 +76,6 @@ class Logoutview(View):
 
         logout(request)
 
-        return redirect('login')
+        return redirect('home')
 
 
